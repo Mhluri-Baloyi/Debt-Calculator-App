@@ -15,4 +15,4 @@ A web application for calculating and visualizing debt, built with HTML, CSS, an
 ## Usage
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/Mhluri-Baloyi/Debt-Calculator-App.git

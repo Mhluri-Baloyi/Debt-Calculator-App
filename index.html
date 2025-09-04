@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Mhluri Baloyi">
+    <title>ADRS Debt Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.166.1/build/three.module.js"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="canvas-container"></div>
+    <div class="container">
+        <header>
+            <img src="logo.png" alt="ADRS Logo" class="logo">
+            <h1>Debt Repayment Calculator</h1>
+            <p>Enter your loan details to see how long it will take to become debt-free.</p>
+            <div class="theme-switch-container">
+                <label class="theme-switch" for="theme-toggle">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </header>
+        <main>
+            <div class="calculator-card">
+                <form id="debt-form">
+                    <div class="input-group">
+                        <label for="total-debt">Total Debt Amount (R)</label>
+                        <input type="number" id="total-debt" placeholder="e.g., 30000" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="interest-rate">Annual Interest Rate (%)</label>
+                        <input type="number" id="interest-rate" step="0.01" placeholder="e.g., 5.5" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="monthly-payment">Monthly Payment (R)</label>
+                        <input type="number" id="monthly-payment" placeholder="e.g., 500" required>
+                    </div>
+                    <button type="submit">Calculate</button>
+                </form>
+            </div>
+
+            <div id="results-container" class="results-card hidden">
+                <h2>Your Repayment Plan</h2>
+                <div id="summary-message"></div>
+                <div class="results-grid">
+                    <div class="result-item">
+                        <h3>Payoff Time</h3>
+                        <p id="payoff-time">-</p>
+                    </div>
+                    <div class="result-item">
+                        <h3>Total Interest Paid</h3>
+                        <p id="total-interest">-</p>
+                    </div>
+                    <div class="result-item">
+                        <h3>Total Amount Paid</h3>
+                        <p id="total-paid">-</p>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <div class="chart-bar principal-bar" style="width: 0%;"></div>
+                    <div class="chart-bar interest-bar" style="width: 0%;"></div>
+                </div>
+                <div class="chart-legend">
+                    <div><span class="legend-dot principal"></span> Principal</div>
+                    <div><span class="legend-dot interest"></span> Interest</div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2025 ADRS. All rights reserved.</p>
+        </footer>
+    </div>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
